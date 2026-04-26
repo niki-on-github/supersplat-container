@@ -1,5 +1,5 @@
 FROM node:20-alpine AS build
-ARG SUPERSPLAT_VERSION=2.24.4
+ARG SUPERSPLAT_VERSION=2.24.5
 WORKDIR /app
 RUN apk add --no-cache git openssh-client
 RUN git clone --branch "v$SUPERSPLAT_VERSION" --single-branch https://github.com/playcanvas/supersplat.git
