@@ -1,4 +1,4 @@
-FROM node:24-alpine AS build
+FROM node:26-alpine AS build
 ARG SUPERSPLAT_VERSION=3.7.0
 WORKDIR /app
 RUN apk add --no-cache git openssh-client
@@ -7,7 +7,7 @@ WORKDIR /app/supersplat
 RUN npm install
 RUN npm run build
 
-FROM node:24-alpine AS runtime
+FROM node:26-alpine AS runtime
 WORKDIR /app
 RUN npm install -g serve
 COPY --from=build /app/supersplat/dist ./dist
